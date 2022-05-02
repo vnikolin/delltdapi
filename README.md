@@ -9,6 +9,10 @@ This Library supports fetching Dell Tech Direct API Warranty Information
 
 ## Usage
 
+Proxy can be set via proxyUrl in client.go as needed
+
+## Usage
+
 ```go
 //main.go
 package main
