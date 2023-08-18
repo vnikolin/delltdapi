@@ -24,8 +24,8 @@ func NewDellTDClient(target string, username string, password string, apiToken s
 	var err error
 	var tr *http.Transport
 	// We can define a proxy below for proxyUrl
-	// Format is: "http://sub.proxy.att.com:8080"
-	proxyUrl, err := url.Parse("http://sub.proxy.att.com:8080")
+	// Format is: "http://proxy-domain.com:1234"
+	proxyUrl, err := url.Parse("http://proxy-domain.com:1234")
 	cookieJar, _ := cookiejar.New(nil)
 	if len(proxyUrl.Host) > 0 {
 		tr = &http.Transport{
