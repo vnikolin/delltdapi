@@ -7,7 +7,7 @@ import (
 	"net/url"
 )
 
-//DellTDClient ... Contstructor required Variables
+// DellTDClient ... Contstructor required Variables
 type DellTDClient struct {
 	DellFQDN     string
 	ClientId     string
@@ -17,15 +17,20 @@ type DellTDClient struct {
 	Client *http.Client
 }
 
-//NewDellTDClient ... Initializes the Constructor with the above variables
+// NewDellTDClient ... Initializes the Constructor with the above variables
 func NewDellTDClient(target string, username string, password string, apiToken string) (*DellTDClient, error) {
 
 	// Create a new Client instance
-	var err error
-	var tr *http.Transport
+	var (
+		err      error
+		tr       *http.Transport
+		proxyUrl *url.URL
+	)
+
 	// We can define a proxy below for proxyUrl
 	// Format is: "http://proxy-domain.com:1234"
-	// proxyUrl, err := url.Parse("http://proxy-domain.com:1234")
+	// proxyUrl, err = url.Parse("http://proxy-domain.com:1234")
+
 	cookieJar, _ := cookiejar.New(nil)
 	if len(proxyUrl.Host) > 0 {
 		tr = &http.Transport{
